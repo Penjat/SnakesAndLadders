@@ -14,7 +14,8 @@
 NS_ASSUME_NONNULL_BEGIN
 enum GameState{
     PLAYING,
-    SETUP
+    SETUP,
+    QUIT
 };
 @interface GameManager : NSObject
 

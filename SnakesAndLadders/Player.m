@@ -15,4 +15,11 @@
     
     NSLog(@"%@ rolled %i, moving to %@",self.name,roll,self.curTile);
 }
+-(NSString*)printPos:(BOOL)pastTense{
+    
+    if(pastTense){
+       return [NSString stringWithFormat:@"%@ was at %@.",self.name,self.curTile ];
+    }
+    return [NSString stringWithFormat:@"%@ is at %@. ",self.name,self.curTile ];
+}
 @end

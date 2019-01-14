@@ -15,7 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong,nonatomic) NSNumber *curTile;
 @property (strong,nonatomic) NSString *name;
 
+
 -(void)roll;
+-(NSString*)printPos:(BOOL)pastTense;
+
 @end
 
 NS_ASSUME_NONNULL_END

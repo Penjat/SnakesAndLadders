@@ -39,7 +39,8 @@
             nameInput = [NSString stringWithFormat:@"Player %i",(i+1)];
             NSLog(@"defaulting to %@",nameInput);
         }
-        
+        //start at tile 1
+        [player setCurTile:@1];
         [player setName:nameInput];
         //add to players array
         [self.players addObject:player];
@@ -81,17 +82,59 @@
                 //TODO print 'playing a game with:'
                 gameState = PLAYING;
             }
+        }else if(gameState == QUIT){
+            NSLog(@"Do you want to quit(Q) , restart(R) , or return to the current game (any other key)");
+            NSString *input = [InputManager getPlayerInput];
+            if([input isEqualToString:@"q"]){
+                NSLog(@"goodbye.");
+                return NO;
+            }else if([input isEqualToString:@"r"]){
+                NSLog(@"restarting game");
+                [self.players removeAllObjects];
+                gameState = SETUP;
+                curTurn = 0;
+            }else{
+                
+            }
+            
         }else if(gameState == PLAYING){
             Player *curPlayer = self.players[curTurn];
-            NSLog(@"%@'s turn",[curPlayer name]);
+            [self printCurScore];
+            NSLog(@"----------------%@'s turn----------------",[curPlayer name]);
+            
+            
+            
             NSString *input = [InputManager getPlayerInput];
-            if([input isEqualToString:@"roll"] || [input isEqualToString:@"r"] ){
+            if([input isEqualToString:@"quit"] || [input isEqualToString:@"restart"] ){
+                gameState = QUIT;
+            }else if([input isEqualToString:@"roll"] || [input isEqualToString:@"r"] ){
                 [curPlayer roll];
                 [moveManager checkItle:curPlayer];
                 if([moveManager checkGameOver:curPlayer]){
                     NSLog(@"%@ wins!!!",curPlayer.name);
+                    NSString *finalScore = @"";
+                    for (Player *player in self.players) {
+                        
+                        //don't print out the winning players position
+                        if(player != curPlayer){
+                            finalScore = [finalScore stringByAppendingString:[player printPos:YES]];
+                        }
+                        
+                    }
+                    NSLog(@"%@",finalScore);
+                    NSLog(@"Do you want to play again? (y/n)");
+                    input = [InputManager getPlayerInput];
+                    if( [input isEqualToString:@"y"]){
+                        //TODO put in reset
+                        [self.players removeAllObjects];
+                        gameState = SETUP;
+                        curTurn = 0;
+                    }else{
+                        NSLog(@"Goodbye.");
+                        return NO;
+                    }
                     
-                    return NO;
+                    
                 }
                 //find the next turn
                 curTurn = [self nextTurn:curTurn];
@@ -108,5 +151,13 @@
     return curTurn;
     
 }
+-(void)printCurScore{
+    NSString *curScore = @"SCORE: ";
+    for (Player *player in self.players) {
+        curScore = [curScore stringByAppendingString:[player printPos:NO]];
+    }
+    NSLog(@"\n\n%@\n\n",curScore);
+}
+
 
 @end
