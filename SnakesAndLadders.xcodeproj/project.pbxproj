@@ -11,6 +11,7 @@
 		0B1EF8E621EC034000F7C725 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1EF8E521EC034000F7C725 /* Player.m */; };
 		0B1EF8E921EC049200F7C725 /* InputManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1EF8E821EC049200F7C725 /* InputManager.m */; };
 		0B1EF8EC21EC08BD00F7C725 /* MoveManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1EF8EB21EC08BD00F7C725 /* MoveManager.m */; };
+		0B1EF8EF21EC109400F7C725 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1EF8EE21EC109400F7C725 /* GameManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 		0B1EF8E821EC049200F7C725 /* InputManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputManager.m; sourceTree = "<group>"; };
 		0B1EF8EA21EC08BD00F7C725 /* MoveManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoveManager.h; sourceTree = "<group>"; };
 		0B1EF8EB21EC08BD00F7C725 /* MoveManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoveManager.m; sourceTree = "<group>"; };
+		0B1EF8ED21EC109400F7C725 /* GameManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		0B1EF8EE21EC109400F7C725 /* GameManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +76,8 @@
 				0B1EF8E521EC034000F7C725 /* Player.m */,
 				0B1EF8EA21EC08BD00F7C725 /* MoveManager.h */,
 				0B1EF8EB21EC08BD00F7C725 /* MoveManager.m */,
+				0B1EF8ED21EC109400F7C725 /* GameManager.h */,
+				0B1EF8EE21EC109400F7C725 /* GameManager.m */,
 			);
 			path = SnakesAndLadders;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 			files = (
 				0B1EF8E921EC049200F7C725 /* InputManager.m in Sources */,
 				0B1EF8E621EC034000F7C725 /* Player.m in Sources */,
+				0B1EF8EF21EC109400F7C725 /* GameManager.m in Sources */,
 				0B1EF8EC21EC08BD00F7C725 /* MoveManager.m in Sources */,
 				0B1EF8DE21EC02E700F7C725 /* main.m in Sources */,
 			);
