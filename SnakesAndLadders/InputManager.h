@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface InputManager : NSObject
-+(NSString*)getPlayerInput;
++(NSString*)getPlayerInput:(BOOL)caseMatters;
 @end
 
 NS_ASSUME_NONNULL_END

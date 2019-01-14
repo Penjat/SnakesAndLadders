@@ -32,7 +32,7 @@
         //create and name the players
         Player *player = [[Player alloc]init];
         NSLog(@"please enter a name for player %i",(i+1));
-        NSString *nameInput = [InputManager getPlayerInput];
+        NSString *nameInput = [InputManager getPlayerInput:YES];//case allowed for name
         
         //if name left blank
         if([nameInput isEqualToString:@""]){
@@ -61,7 +61,7 @@
     
     NSLog(@"Welcome to snakes and ladders");
     
-    Player *player1 = [[Player alloc] init];
+    
     MoveManager *moveManager = [[MoveManager alloc] init];
     enum GameState gameState = SETUP;
     NSUInteger curTurn = 0;
@@ -74,7 +74,7 @@
         
         if(gameState == SETUP){
             NSLog(@"please enter the number of players");
-            NSString *input = [InputManager getPlayerInput];
+            NSString *input = [InputManager getPlayerInput:NO];
             
             
             if([self setUp:input]){
@@ -84,7 +84,7 @@
             }
         }else if(gameState == QUIT){
             NSLog(@"Do you want to quit(Q) , restart(R) , or return to the current game (any other key)");
-            NSString *input = [InputManager getPlayerInput];
+            NSString *input = [InputManager getPlayerInput:NO];
             if([input isEqualToString:@"q"]){
                 NSLog(@"goodbye.");
                 return NO;
@@ -104,7 +104,7 @@
             
             
             
-            NSString *input = [InputManager getPlayerInput];
+            NSString *input = [InputManager getPlayerInput:NO];
             if([input isEqualToString:@"quit"] || [input isEqualToString:@"restart"] ){
                 gameState = QUIT;
             }else if([input isEqualToString:@"roll"] || [input isEqualToString:@"r"] ){
@@ -123,7 +123,7 @@
                     }
                     NSLog(@"%@",finalScore);
                     NSLog(@"Do you want to play again? (y/n)");
-                    input = [InputManager getPlayerInput];
+                    input = [InputManager getPlayerInput:NO];
                     if( [input isEqualToString:@"y"]){
                         //TODO put in reset
                         [self.players removeAllObjects];

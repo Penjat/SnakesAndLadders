@@ -9,13 +9,17 @@
 #import "InputManager.h"
 
 @implementation InputManager
-+(NSString*)getPlayerInput{
++(NSString*)getPlayerInput:(BOOL)caseMatters{
     char str[100];
     fgets (str, 100, stdin);
     
     NSString *inputString = [[NSString alloc] initWithUTF8String:str];
     
     inputString = [inputString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if(!caseMatters){
+        //if case doesn't matter turn to lowercase
+        [inputString lowercaseString];
+    }
     return inputString;
 }
 @end
