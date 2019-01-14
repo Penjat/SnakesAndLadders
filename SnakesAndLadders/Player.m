@@ -13,6 +13,6 @@
     int roll = arc4random_uniform(6)+1;
     self.curTile = @([_curTile integerValue]+roll);
     
-    NSLog(@"roll was %i, moving to %@",roll,self.curTile);
+    NSLog(@"%@ rolled %i, moving to %@",self.name,roll,self.curTile);
 }
 @end

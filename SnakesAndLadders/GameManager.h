@@ -17,6 +17,10 @@ enum GameState{
     SETUP
 };
 @interface GameManager : NSObject
+
+@property (strong,nonatomic) NSMutableArray<Player*>* players;
+
+-(instancetype)init;
 -(BOOL)playing;
 @end
 

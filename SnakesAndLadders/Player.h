@@ -11,7 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Player : NSObject
-@property (strong,nonatomic) NSNumber * curTile;
+
+@property (strong,nonatomic) NSNumber *curTile;
+@property (strong,nonatomic) NSString *name;
+
 -(void)roll;
 @end
 

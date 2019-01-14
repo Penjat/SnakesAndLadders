@@ -25,10 +25,10 @@
         
         if([newTile isLessThan:oldTile]){
             //is a snake
-            NSLog(@"Landed on a snake!!! Sliding down to %@." ,newTile);
+            NSLog(@"Landed on a snake!!! %@ slides down to %@." ,player.name,newTile);
             return;
         }else{
-            NSLog(@"Landed on a ladder!!! Climbing up to %@." ,newTile);
+            NSLog(@"Landed on a ladder!!! %@ climbs up to %@." ,player.name,newTile);
         }
         [player setCurTile:newTile];
         
